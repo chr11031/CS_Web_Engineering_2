@@ -1,0 +1,30 @@
+#boxA {
+    color: #0029A3;
+    background-color: #CFCFCF;
+}
+
+#boxB {
+    color: #0029A3;
+    background-color: #E6E6E6
+}
+
+#boxC {
+    color: #0029A3;
+    background-color: #BABABA;
+}
+
+#home {
+   background-color = #E7E7E7;
+}
+
+#link1 {
+    color:#555;
+}
+
+.bigText {
+    text-size: 400%;
+}
+
+.serverBackground {
+    background-image: url("http://cookbooks.ca.com/casiteminder/wp-content/uploads/2013/10/Network-Server-Room.jpg");    
+}

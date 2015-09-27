@@ -1,0 +1,8 @@
+function on(box, text) {
+    document.getElementById(box).style.backgroundColor = "blue";
+    document.getElementById(text).style.color = "#d3d3d3";
+}
+function off(box, text) {
+    document.getElementById(box).style.backgroundColor = "#E7E7E7";
+    document.getElementById(text).style.color = "#555";
+}
