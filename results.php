@@ -189,11 +189,11 @@
 	echo "<div class = \"container-fluid\"><div class = \"jumbotron\">";
 
 	// Display pi charts of the survey
-	echo "<h1>Statistical Analysis Tell us:</h1>";
+	echo "<h1>Statistical Analysis Tells us:</h1>";
 	printPieCharts($heroStats, $vilStats, $powStats);	
 
 	// Display the statistics of the survey
-	echo "<h2>Here is what the surveyers have said:</h2><table class =\"table table-bordered table-striped\">";
+	echo "<h2>Here is what the surveyers have said (your entry last):</h2><table class =\"table table-bordered table-striped\">";
 	echo "<thead><tr><td>Favorite Hero</td><td>Favorite Villain</td><td>Favorite Powers</td><td>Original Hero</td>";
 	echo "<td>Original Villain</td></tr></thead>";
 	for($sub = 0; $sub < count($surveyData["hero"]); $sub++) {		   
