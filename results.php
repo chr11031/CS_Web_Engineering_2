@@ -1,5 +1,5 @@
 <?php
-	// Handle Session data/conditions
+	// Handle Session data/conditions (may send us to the results page)
 	session_start();
 	if(!isset($_SESSION["status"])) {
 	  $_SESSION["status"] = "PENDING";
