@@ -13,18 +13,68 @@
     background-color: #BABABA;
 }
 
-#home, #asgns {
+#home, #asgns, #news, #marketplace, #users {
     background-color: #E7E7E7;
 }
 
-#link1, #link2 {
+#news, #marketplace, #users {
+    background-color: #1F1F1F;
+}
+
+#houseLink1, #houseLink2, #houseLink3, #houseLink4 {
+    color :white;
+}
+
+#link1, #link2, #link3 {
     color: #555;
+}
+
+#indent {
+    text-indent: 50px;
 }
 
 #paddedTable {
     border-spacing: 5px;
     border-collapse: separate;
 }
+
+#newsTag {
+    font-style: italic;
+    font-style: bold;
+    color: yellow;
+}
+
+#newsHeader {
+    font-style: bold;
+    color: #C9C9C9;
+}
+
+#newsWell {
+    background-color: #404040;
+    border-color: #404040;
+    color: #DEDEDE;
+}
+
+#houseBar {
+    border-color: #1F1F1F;
+    background-color: #1F1F1F;
+}
+
+#houseContainer {
+    color: white;
+}
+
+#houseBody {
+    background-color: #1F1F1F;
+    color: white;
+}
+
+#houseBodyOpaque {
+    background-color: #1F1F1F;
+    color: white;
+    background: rgba(31, 31, 31, 0.9);
+}
+
 
 #titleCell {
     text-align: center;
@@ -34,8 +84,25 @@
       background: rgba(204, 204, 204, 0.8);
 }
 
+#houseTable {
+    border: 2px solid #959595;
+    background: #292929;
+}
+
+#houseTexture {
+    background-image: url("/images/blueprint.png");
+}
+
 #heroTexture {
     background-image: url("/images/banner.png");
+}
+
+#regularText {
+    color: black;
+}
+
+#real-t {
+    color: #FF1F1F;
 }
 
 .spacious {
