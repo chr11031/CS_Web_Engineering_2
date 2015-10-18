@@ -51,7 +51,7 @@
 	      $user = getenv('OPENSHIFT_MYSQL_DB_USERNAME');
 	      $password = getenv('OPENSHIFT_MYSQL_DB_PASSWORD');
 
-	      $db = new PDO('mysql:host=$host:$port;dbname=housing', $user, $password);
+	      $db = new PDO("mysql:host=$host:$port;dbname=housing", $user, $password);
 
 	      $input = $_POST['searchById'];
 	      

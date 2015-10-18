@@ -54,9 +54,8 @@
 	      $port = getenv('OPENSHIFT_MYSQL_DB_PORT');
 	      $user = getenv('OPENSHIFT_MYSQL_DB_USERNAME');
 	      $password = getenv('OPENSHIFT_MYSQL_DB_PASSWORD');
-
-	      $db = new PDO('mysql:host=$host:$port;dbname=housing', $user, $password);
-
+	      $db = new PDO("mysql:host=$host:$port;dbname=housing", $user, $password);
+	      
 	      $queryString = 'SELECT count(*) FROM market LEFT Join properties on market.prop_id = properties.prop_id left join users on market.user_id = users.user_id';
 	      $result = $db->prepare($queryString);
 	      $result->execute();
