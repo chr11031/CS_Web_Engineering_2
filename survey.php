@@ -7,7 +7,7 @@
        ; // do nothing
      }
      else { // status "SUBMITTED"
-       header("Location: results.php"); // go to the results page
+       header("Location: results.php"); // go to the results page.
      }
    }     
 ?>
