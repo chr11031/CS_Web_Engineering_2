@@ -6,7 +6,7 @@
      $_SESSION["realty_status"] = "Visitor";
    else {
      if($_SESSION["realty_status"] == "Member") {
-        //header("Location: results.php"); // DO SOMEThing else...
+        //header("Location: results.php"); // DO SOMEThing else... This will be fleshed out with the rest of the website
      }
    }     
 ?>
