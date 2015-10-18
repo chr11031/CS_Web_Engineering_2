@@ -66,6 +66,7 @@
 		return;
 	      }
 
+	      //Querying the database
 	      $queryString = 'SELECT COUNT(*) FROM properties WHERE user_id ' . "='" . $input . "'";
 	      $result = $db->prepare($queryString);
 	      $result->execute();
