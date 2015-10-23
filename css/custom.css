@@ -21,8 +21,12 @@
     background-color: #1F1F1F;
 }
 
-#houseLink1, #houseLink2, #houseLink3, #houseLink4 {
+#houseLinkGeneric, #houseLink1, #houseLink2, #houseLink3, #houseLink4 {
     color :white;
+}
+
+#houseLinkWelcome {
+    color: yellow;
 }
 
 #link1, #link2, #link3 {
@@ -47,6 +51,10 @@
 #newsHeader {
     font-style: bold;
     color: #C9C9C9;
+}
+
+#logoutButton {
+    margin-left: 0.5cm;
 }
 
 #newsWell {
