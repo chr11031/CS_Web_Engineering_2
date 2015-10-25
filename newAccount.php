@@ -11,19 +11,14 @@
 	$balance = floatval($_POST['balance']);
 
 	try {
-	      $user = "root";
-	      $password = "";
-	      //$port = getenv('OPENSHIFT_MYSQL_DB_PORT');
-	      //$user = getenv('OPENSHIFT_MYSQL_DB_USERNAME');
-	      //$password = getenv('OPENSHIFT_MYSQL_DB_PASSWORD');
-	      //$host = getenv('OPENSHIFT_MYSQL_DB_HOST');
-	      // $db = new PDO("mysql:host=$host:$port;dbname=housing", $user, $password);
-	      //$db = new PDO("mysql:127.0.0.1;dbname=housing", $user, $password);
-
+	      $port = getenv('OPENSHIFT_MYSQL_DB_PORT');
+	      $user = getenv('OPENSHIFT_MYSQL_DB_USERNAME');
+	      $password = getenv('OPENSHIFT_MYSQL_DB_PASSWORD');
+	      $host = getenv('OPENSHIFT_MYSQL_DB_HOST');
 	      
 	      $queryString = "SELECT count(*) FROM users WHERE username = (?)";
 	      
-	      $mysqli = new mysqli("127.0.0.1", $user, $password, "housing");
+	      $mysqli = new mysqli("$host", $user, $password, "housing", $port);
 	      $stmt = $mysqli->prepare($queryString);
 	      $stmt->bind_param("s", $userInput);
 	      $stmt->execute();

@@ -52,11 +52,7 @@
 	      $user = getenv('OPENSHIFT_MYSQL_DB_USERNAME');
 	      $password = getenv('OPENSHIFT_MYSQL_DB_PASSWORD');
 
-	      // Delete this for openshift
-	      $user = "root";
-	      $password = "";	      
-
-	      $db = new PDO("mysql:host=127.0.0.1;dbname=housing", $user, $password);
+	      $db = new PDO("mysql:host=$host:$port;dbname=housing", $user, $password);
 
 	      $input = $_SESSION['username'];
 	      

@@ -13,16 +13,14 @@
 	  try {
 	      $user = "root";
 	      $password = "";
-	      //$port = getenv('OPENSHIFT_MYSQL_DB_PORT');
-	      //$user = getenv('OPENSHIFT_MYSQL_DB_USERNAME');
-	      //$password = getenv('OPENSHIFT_MYSQL_DB_PASSWORD');
-	      //$host = getenv('OPENSHIFT_MYSQL_DB_HOST');
-	      // $db = new PDO("mysql:host=$host:$port;dbname=housing", $user, $password);
-	      //$db = new PDO("mysql:127.0.0.1;dbname=housing", $user, $password);
+	      $port = getenv('OPENSHIFT_MYSQL_DB_PORT');
+	      $user = getenv('OPENSHIFT_MYSQL_DB_USERNAME');
+	      $password = getenv('OPENSHIFT_MYSQL_DB_PASSWORD');
+	      $host = getenv('OPENSHIFT_MYSQL_DB_HOST');
 
 	      $queryString = "SELECT count(*) FROM market WHERE prop_id = (?)";
 	      
-	      $mysqli = new mysqli("127.0.0.1", $user, $password, "housing");
+	      $mysqli = new mysqli("$host", $user, $password, "housing", $port);
 	      $stmt = $mysqli->prepare($queryString);
 	      $stmt->bind_param("i", $propertyID);
 	      $stmt->execute();
@@ -30,7 +28,7 @@
 	      	     
 	      if($stmt->fetch()) {
 	        if($matches != 0) {
-	        echo "One or more of the houses you have selected is already on the market. You must refine your changes.";
+	        echo "One or more of the houses you have selected is already on the market. You must refine your changes. $property_id";
 		return;		
 		}
 	      }
