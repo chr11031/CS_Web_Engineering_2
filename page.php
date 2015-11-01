@@ -1,4 +1,8 @@
 <?php
+	function outputJQUERY() {
+	echo "<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js\"></script>";
+	}
+
 	function update() {
 	  	try {
 	      $user = "root";
@@ -31,8 +35,8 @@
 	      $stmt->close();
 	      $mysqli->close();
 	}
-
 	function headerLogin() {
+	     outputJQUERY();
 	     session_start();
    	     if(!isset($_SESSION["realty_status"])) {
      	       $_SESSION["realty_status"] = "Visitor";
@@ -52,25 +56,25 @@
 	    	<a id = \"houseLink4\" href =\"join.php\">Join</a></li>
 	  	</ul>
 	  	</div>";	       
-	        echo '<form id="sign-in" class = "navbar-form pull-right role="form" action ="login.php" method="POST"	>
-	  	<div class="input-group"> 
+		echo '<span id = "logStatus" style = "white-space: nowrap;" class = "navbar-form pull-right" role = "form">';
+	        echo '	<div class="input-group"> 
 		<span class="input-group-addon"><i class = "glyphicon glyphicon-user"></i></span>
-		<input id="email" type="text" class ="form-control" name ="username">
+		<input id="username" type="text" class ="form-control" name ="username">
 		</div>		
 	  	<div class="input-group"> 
 		<span class="input-group-addon"><i class = "glyphicon glyphicon-lock"></i></span>
 		<input id="password" type="password" class ="form-control" name ="password">		
 		</div>
 	  	<div class="input-group"> 
-		<button class = "btn btn-danger">Sign In</button>
+		<button id = "login" class = "btn btn-danger" onclick = "loginJ_function()">Sign In</button>
 		</div>
-		</form></div></div>'; 
+		</span>'; 
 	     }
 	     else {
 	       echo "	<div class =\"navbar-header\">
 	       	  <a href =\"realty.php\" class = \"navbar-brand\" id=\"real-t\">REAL-T</a>	
 	  	  <ul class = \"nav navbar-nav\">
-	  	  <li id=\"news\" onmouseover=\"onHouse('news','houseLink1')\" onmouseout=\"offHouse('news','houseLink1')\">
+  	  <li id=\"news\" onmouseover=\"onHouse('news','houseLink1')\" onmouseout=\"offHouse('news','houseLink1')\">
 	    	  <a id = \"houseLink1\" href =\"realty.php\">News</a></li>
 
 	  <li id=\"marketplace\" onmouseover=\"onHouse('marketplace','houseLink2')\" onmouseout=\"offHouse('marketplace','houseLink2')\">
@@ -83,14 +87,15 @@
 	    	<a id = \"houseLink4\" href =\"myPage.php\">My Page</a></li></div>";
 
 
-		echo "<form id=\"sign-out\" class=\"navbar-form pull-right\" role=\"form\" action =\"logout.php\" method=\"POST\">
+		echo '<span id = "logStatus" class = "navbar-form pull-right role= \"form\">';
+		echo "
 	  	<div class=\"input-group\"> 
-	    	<span id = \"houseLinkWelcome\">Welome back " . $_SESSION["username"] . "</span></li></div>
-		<button class = \"btn btn-danger\" id =\"logoutButton\">Sign Out</button>
-		</form></div>";		
+	    	<span id = \"houseLinkWelcome\">Welome back " . $_SESSION["username"] . "</span></li></div>	
+		<span  style=\"padding-left:0.8cm;\" ></span><button class = \"btn btn-danger\" id =\"logout\" onclick =\"outJ()\">Sign Out</button>
+		</div></span>";		
 
 		echo "
-	  	</ul>
+			  	</ul>
 	  	</div>";	       
 		echo "</div>";
 	     }

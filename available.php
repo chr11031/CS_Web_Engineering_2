@@ -1,13 +1,7 @@
 <?php	
 	session_start();	
 	header('Content-type: application/json');
-
-   	if(!isset($_SESSION["realty_status"])) {
-     	       $_SESSION["realty_status"] = "Visitor";
-	}
-
-	$userInput = $_POST['username'];
-	$pass = $_POST['password'];
+	$desired_username = $_POST['username'];
 
 	try {
 	      $user = "root";
@@ -17,16 +11,15 @@
 	      $password = getenv('OPENSHIFT_MYSQL_DB_PASSWORD');
 	      $host = getenv('OPENSHIFT_MYSQL_DB_HOST');
 
-	      $queryString = "SELECT * FROM users WHERE (username, password) = (?, ?)";
+	      $queryString = "SELECT * FROM users WHERE (username) = (?)";
 	      
 	      $mysqli = new mysqli("$host", $user, $password, "housing", $port);
 	      $stmt = $mysqli->prepare($queryString);
-	      $stmt->bind_param("ss", $userInput, $pass);
+	      $stmt->bind_param("s", $desired_username);
 	      $stmt->execute();
 
 	      $matches;
 	      $successful = false;
-
 
 	      $stmt->bind_result($var1, $var2, $var3, $var4, $var5, $var6, $var7);
 	      if($row = $stmt->fetch()) {
@@ -45,24 +38,22 @@
 	      $mysqli->close();
 
 	      if($successful == true) {
-	      	$data = array($var3);
-	        echo json_encode($data);
+	      	$av = array("no");
+	        echo json_encode($av);
 		return;
 		}
 	      else {
-	        $err = array("Invalid Login");
-     	        echo json_encode($err);
+	        $response = array("yes");
+     	        echo json_encode($response);
 		return;
 		}
 	}
 	catch(Exception $e) {
-	  echo "UNKOWN EXCEPTION";
-	  $err = array("Invalid Login");
+	  $err = array("undefined");
 	  echo json_encode($err);
 	  return;
 	}
-	
-	$err = array("Invalid Login");
+	$err = array("undefined");
 	echo json_encode($err);
 	return;
 ?>

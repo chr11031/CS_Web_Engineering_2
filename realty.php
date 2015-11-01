@@ -57,7 +57,7 @@
 		    </tr></thead><tbody id = \"houseTable\">";
 	      	    $statement = $db->query('SELECT properties.title, properties.address, properties.town, properties.state, properties.sq_ft, properties.photo_url, properties.description, users.name, users.username, users.email, users.phone, market.price FROM market LEFT Join properties on market.prop_id = properties.prop_id left join users on market.user_id = users.user_id ORDER BY RAND() LIMIT 1');
 	      	    while ($row = $statement->fetch(PDO::FETCH_ASSOC)) { 	
-	      	    	    echo "<tr id = \"houseTable\"><td id = \"houseTable\">" . $row['title'] . "<br/><br/><a href = \"purchase.php\"><button class = \"btn btn-success\">BUY NOW!</button></a></td><td>" .  
+	      	    	    echo "<tr id = \"houseTable\"><td id = \"houseTable\">" . $row['title'] . "<br/><br/><a href = \"market.php\"><button class = \"btn btn-success\">BUY NOW!</button></a></td><td>" .  
 			    $row['address'] . ', ' . $row['town'] . ', <strong>' . $row['state'] . 
 			    "</strong></td><td><img src=\"" . 
 		            $row['photo_url'] . "\" width=\"180px\" height=\"120px\">" . 
@@ -68,7 +68,7 @@
 		            "</td><td id = \"houseTable\">" .
 			    $row['description'] .
 			    "</td><td id = \"houseTable\">" .
-		            $row['phone'] .' / ' . $row['email'] .  "<br/><br/><a href = \"contact.php\"><button class =\"btn btn-info\">CONTACT!</button></a>" .
+		            $row['phone'] .' / ' . $row['email'] .  "<br/><br/>" .
 		            "</td></tr>";
 	      	      }
 		      echo "</tbody></table>";

@@ -1,5 +1,7 @@
 <?php
 	session_start();
+	header('Content-type: application/json');
      	$_SESSION["realty_status"] = "Visitor";
-	header('location: realty.php');
+	$arr = array("Successfully Logged out");
+	echo json_encode($arr);
 ?>

@@ -25,6 +25,10 @@
     </div>
     <script>
       function formCheck() {
+      if(loggedIn() == "no") {
+         alert("You need to be logged in to access this feature");
+         return false;
+      }
 
       var boxes = document.getElementsByName('houseBox[]');
       for(var i = 0; i < boxes.length; i++) {
@@ -81,7 +85,7 @@ $statement = $db->query('SELECT market.market_id, properties.title, properties.a
 		            "</td><td id = \"houseTable\">" .
 			    $row['description'] .
 			    "</td><td id = \"houseTable\">" .
-		            $row['phone'] .' / ' . $row['email'] .  "<br/><br/><a href = \"https://www.gmail.com\"><button class =\"btn btn-info\">CONTACT!</a></form>" .
+		            $row['phone'] .' / ' . $row['email'] .  "<br/><br/></form>" .
 		            "</td></tr>";
 	      	      }
 		      echo "</tbody></table>";

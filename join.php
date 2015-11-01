@@ -37,7 +37,6 @@
           (email == "") ||
 	  (balance == "") ||
           (phone == "")) {
-	  alert(user);
 	  alert("Please fill out all fields to sign up for an account");
 	  return false;
 	  }

@@ -55,7 +55,7 @@
 
 	      $condition = $_POST['method'];
 	      $input = $_POST['search'];
-
+	      
 	      $queryString = 'SELECT COUNT(*) FROM users WHERE ' . $condition . "='" . $input . "'";
 	      $result = $db->prepare($queryString);
 	      $result->execute();

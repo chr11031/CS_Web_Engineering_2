@@ -3,7 +3,10 @@
    	if(!isset($_SESSION["realty_status"])) {
      	       $_SESSION["realty_status"] = "Visitor";
 	       echo "<h1>You must be logged in to use this feature.</h1>";
-	       return;
+	}
+	if($_SESSION["realty_status"] != "Member") {
+	header("Location: market.php");
+	return;
 	}
 
  	$userID =($_SESSION['id']);
